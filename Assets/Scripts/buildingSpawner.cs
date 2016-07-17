@@ -12,5 +12,6 @@ public class buildingSpawner : MonoBehaviour {
 		building = GlobalGeneratorValues.getRandomBuilding();
 		building.transform.localScale = Vector3.one * GlobalGeneratorValues.fullSizeBuildingScale *  Mathf.Pow( GlobalGeneratorValues.buildingReduction, buildingSequenceNumber);
 		Instantiate(building, transform.position, transform.rotation);
+		Destroy(gameObject);
 	}
 }

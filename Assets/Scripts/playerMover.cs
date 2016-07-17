@@ -11,15 +11,13 @@ public class playerMover : MonoBehaviour {
 	private float amountToMoveBeforeSpawningABuilding = 100f;
 	private Vector3 lastSpawnPosition;
 	private float spawnRangeForNewBuildingSpawner;
-	private GameObject buildingSpawner;
 
 	// Use this for initialization
 	void Start () {
 		GlobalGeneratorValues.initBuildingPrefabs(); // this needs to be called somewhere; there's only one player
-
+		GlobalGeneratorValues.initBuildingPositions( transform.position );
 		rb = GetComponent<Rigidbody>();
 		lastSpawnPosition = transform.position;
-		buildingSpawner = (GameObject) Resources.Load("buildingBuilder");
 		spawnRangeForNewBuildingSpawner = Camera.main.farClipPlane;
 	}
 
@@ -31,7 +29,7 @@ public class playerMover : MonoBehaviour {
 		if (Vector3.Distance( transform.position, lastSpawnPosition) > amountToMoveBeforeSpawningABuilding ) {
 			// create a building spawner at spawn range in front of you
 			print("new building!");
-			Instantiate(buildingSpawner, transform.forward.normalized * spawnRangeForNewBuildingSpawner, GlobalGeneratorValues.getSpawnRotation());
+			GetComponent<spawnABuilding>().spawnBuildingWhileMoving( transform );
 			lastSpawnPosition = transform.position;
 		}
 	}

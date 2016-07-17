@@ -26,7 +26,8 @@ public class spawnABuilding : MonoBehaviour {
 	}
 
 	public void spawnLimitSphere( Vector3 pos, float size ) {
-		Instantiate(limitSphere, pos, Quaternion.identity);
+		SphereCollider s = Instantiate(limitSphere, pos, Quaternion.identity) as SphereCollider;
+		s.radius = size;
 		print("Limit Sphere");
 	}
 }

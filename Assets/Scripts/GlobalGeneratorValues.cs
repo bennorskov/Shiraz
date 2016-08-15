@@ -35,9 +35,23 @@ public static class GlobalGeneratorValues {
 		// This is the master list of buildings
 		// each building needs to have a prefab saved in the "Resources" folder
 		// Call each building by prefab name here:
-		buildings.Add( (GameObject) Resources.Load("tower_antenna") );
-		buildings.Add( (GameObject) Resources.Load("slopedRoof") );
-		buildings.Add( (GameObject) Resources.Load("Building1b") );
+		buildings.Add( (GameObject) Resources.Load("4B_1") );
+		buildings.Add( (GameObject) Resources.Load("4B_2") );
+		buildings.Add( (GameObject) Resources.Load("4B_3") );
+		buildings.Add( (GameObject) Resources.Load("4B_4") );
+		buildings.Add( (GameObject) Resources.Load("11+Brunel+Court") );
+		buildings.Add( (GameObject) Resources.Load("AuroraPlace") );
+		buildings.Add( (GameObject) Resources.Load("Broward+Financial+Center") );
+		buildings.Add( (GameObject) Resources.Load("Empire+State+Building.fbx") );
+		buildings.Add( (GameObject) Resources.Load("texturedbldg") );
+		buildings.Add( (GameObject) Resources.Load("trianglebuilding") );
+		buildings.Add( (GameObject) Resources.Load("TriangleBldg2") );
+		buildings.Add( (GameObject) Resources.Load("UB_1") );
+		buildings.Add( (GameObject) Resources.Load("UB_2") );
+		buildings.Add( (GameObject) Resources.Load("UB_3") );
+		buildings.Add( (GameObject) Resources.Load("UB_4") );
+		buildings.Add( (GameObject) Resources.Load("UB_5") );
+		buildings.Add( (GameObject) Resources.Load("UB_6") );
 
 		spawnRots.Add( Quaternion.Euler( Vector3.up * 90 ) );
 		spawnRots.Add( Quaternion.Euler( Vector3.up * 90 ) ); //weighting up higher than other directions slightly

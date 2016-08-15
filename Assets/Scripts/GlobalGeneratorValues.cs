@@ -10,6 +10,7 @@ public static class GlobalGeneratorValues {
 	 */
 
 	public static List<GameObject> buildings = new List<GameObject>();
+	private static bool prefabsInitialized = false;
 
 	public static float fullSizeBuildingScale = 70f;
 	public static float buildingReduction = 0.61803398876895f; // 1 / golden ratio
@@ -25,6 +26,7 @@ public static class GlobalGeneratorValues {
 	private static spawnABuilding spawner;
 
 	public static void initBuildingPrefabs() {
+		if ( prefabsInitialized ) return; // this is called a couple places
 		RenderSettings.fogColor = Color.red; //global fog color call
 
 		spawner = GameObject.FindWithTag("Player").GetComponent<spawnABuilding>();
@@ -44,6 +46,7 @@ public static class GlobalGeneratorValues {
 		spawnRots.Add( Quaternion.Euler( Vector3.right * 90 ) );
 		spawnRots.Add( Quaternion.Euler( Vector3.down * 90 ) );
 		Debug.Log("end global generator Init");
+		prefabsInitialized = true;
 	}
 	public static void initBuildingPositions( Vector3 startPos ) {
 

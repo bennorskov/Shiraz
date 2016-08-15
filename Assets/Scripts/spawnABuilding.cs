@@ -8,9 +8,10 @@ public class spawnABuilding : MonoBehaviour {
 	private GameObject buildingSpawner;
 	private Rigidbody rb;
 
+	private float spawnRange = 20f;
+
 	private List<Vector3> spawnLocations = new List<Vector3>();
 	private float minSpawnDist = 100f;
-	private float maxSpawnDist = 1000f;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,7 @@ public class spawnABuilding : MonoBehaviour {
 
 	public void spawnBuildingWhileMoving( Transform pos ) {
 		//called from the player mover script when the min distance has been achieved
-		GlobalGeneratorValues.initBuildingPositions( rb.velocity.normalized * Camera.main.farClipPlane );	
+		GlobalGeneratorValues.initBuildingPositions( rb.velocity * spawnRange );	
 	}
 
 	public void spawnBuilding ( Vector3 pos, Quaternion spawnRot ) {
@@ -41,13 +42,18 @@ public class spawnABuilding : MonoBehaviour {
 			}
 		}
 		spawnLocations.Add(_pos);
+		if (spawnLocations.Count > 2000) {
+			spawnLocations.RemoveAt(0); // avoid memory leak, as long as Garbage Collection works like this!
+		}
 		return true;
 	}
 
 	void OnDrawGizmos() {
 		Gizmos.color = Color.green;
-		Gizmos.DrawLine(transform.position, GetComponent<Rigidbody>().velocity.normalized * Camera.main.farClipPlane);
-		Gizmos.color = Color.blue;
-		Gizmos.DrawLine( transform.position, transform.forward * 20f );
+		Vector3 v = transform.InverseTransformDirection(rb.velocity);
+		Gizmos.DrawLine(transform.position, v);
+		print(v);
+		Gizmos.color = Color.cyan;
+		Gizmos.DrawRay( new Ray(transform.position, transform.forward) );
 	}
 }

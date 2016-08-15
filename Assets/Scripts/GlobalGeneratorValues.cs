@@ -37,6 +37,7 @@ public static class GlobalGeneratorValues {
 		// Call each building by prefab name here:
 		buildings.Add( (GameObject) Resources.Load("tower_antenna") );
 		buildings.Add( (GameObject) Resources.Load("slopedRoof") );
+		buildings.Add( (GameObject) Resources.Load("Building1b") );
 
 		spawnRots.Add( Quaternion.Euler( Vector3.up * 90 ) );
 		spawnRots.Add( Quaternion.Euler( Vector3.up * 90 ) ); //weighting up higher than other directions slightly

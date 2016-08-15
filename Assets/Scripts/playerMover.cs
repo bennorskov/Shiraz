@@ -10,15 +10,15 @@ public class playerMover : MonoBehaviour {
 	// Building spawner variables
 	private float amountToMoveBeforeSpawningABuilding = 100f;
 	private Vector3 lastSpawnPosition;
-	private float spawnRangeForNewBuildingSpawner;
+	private spawnABuilding sAB;
 
 	// Use this for initialization
 	void Start () {
 		GlobalGeneratorValues.initBuildingPrefabs(); // this needs to be called somewhere; there's only one player
 		GlobalGeneratorValues.initBuildingPositions( transform.position );
 		rb = GetComponent<Rigidbody>();
+		sAB = GetComponent<spawnABuilding>();
 		lastSpawnPosition = transform.position;
-		spawnRangeForNewBuildingSpawner = Camera.main.farClipPlane;
 	}
 
 	void FixedUpdate () {
@@ -29,13 +29,13 @@ public class playerMover : MonoBehaviour {
 		if (Vector3.Distance( transform.position, lastSpawnPosition) > amountToMoveBeforeSpawningABuilding ) {
 			// create a building spawner at spawn range in front of you
 			print("new building spawner!");
-			GetComponent<spawnABuilding>().spawnBuildingWhileMoving( transform );
+			sAB.spawnBuildingWhileMoving( transform );
 			lastSpawnPosition = transform.position;
 		}
 	}
 
 	void OnTriggerExit(Collider other) {
-		// clean up too far buildings
+		// clean up buildings beyond a collision trigger sphere (buildings too far)
 		Destroy(other.gameObject);
 	}
 }

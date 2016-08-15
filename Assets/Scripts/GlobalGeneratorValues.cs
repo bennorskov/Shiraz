@@ -25,6 +25,8 @@ public static class GlobalGeneratorValues {
 	private static spawnABuilding spawner;
 
 	public static void initBuildingPrefabs() {
+		RenderSettings.fogColor = Color.red; //global fog color call
+
 		spawner = GameObject.FindWithTag("Player").GetComponent<spawnABuilding>();
 		totalIterations = spawnBuildingsThisManyTimes;
 
@@ -41,10 +43,9 @@ public static class GlobalGeneratorValues {
 		spawnRots.Add( Quaternion.Euler( Vector3.back * 90 ) );
 		spawnRots.Add( Quaternion.Euler( Vector3.right * 90 ) );
 		spawnRots.Add( Quaternion.Euler( Vector3.down * 90 ) );
+		Debug.Log("end global generator Init");
 	}
 	public static void initBuildingPositions( Vector3 startPos ) {
-
-		spawner.spawnLimitSphere( startPos, minDistBetweenBuildings );
 
 		// setup a field of buildings based on initial spawn distances
 		// spawn buildings in many diretions
@@ -67,7 +68,6 @@ public static class GlobalGeneratorValues {
 	private static Vector3 getNewSpawnPos( Vector3 newPos ) {
 		return Vector3.one;
 	}
-
 
 	public static GameObject getRandomBuilding() {
 		return buildings[ Mathf.FloorToInt( Random.Range(0, buildings.Count) ) ];

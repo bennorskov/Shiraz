@@ -10,8 +10,9 @@ public class buildingSpawner : MonoBehaviour {
 	public void Start () {
 		GlobalGeneratorValues.initBuildingPrefabs();
 		building = GlobalGeneratorValues.getRandomBuilding();
-		building.transform.localScale = Vector3.one * GlobalGeneratorValues.fullSizeBuildingScale *  Mathf.Pow( GlobalGeneratorValues.buildingReduction, buildingSequenceNumber);
-		Instantiate(building, transform.position, transform.rotation);
-		Destroy(gameObject);
+//		building.transform.localScale = Vector3.one * GlobalGeneratorValues.fullSizeBuildingScale *  Mathf.Pow( GlobalGeneratorValues.buildingReduction, buildingSequenceNumber);
+		building.transform.localScale = Vector3.one * GlobalGeneratorValues.fullSizeBuildingScale;
+		GameObject b = Instantiate(building, transform.position, transform.rotation) as GameObject;
+		b.transform.parent = transform;
 	}
 }

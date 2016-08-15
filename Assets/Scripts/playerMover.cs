@@ -14,8 +14,6 @@ public class playerMover : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		RenderSettings.fogColor = Color.red;
-
 		GlobalGeneratorValues.initBuildingPrefabs(); // this needs to be called somewhere; there's only one player
 		GlobalGeneratorValues.initBuildingPositions( transform.position );
 		rb = GetComponent<Rigidbody>();
@@ -30,13 +28,14 @@ public class playerMover : MonoBehaviour {
 	void Update() {
 		if (Vector3.Distance( transform.position, lastSpawnPosition) > amountToMoveBeforeSpawningABuilding ) {
 			// create a building spawner at spawn range in front of you
-			print("new building!");
+			print("new building spawner!");
 			GetComponent<spawnABuilding>().spawnBuildingWhileMoving( transform );
 			lastSpawnPosition = transform.position;
 		}
 	}
 
-	void OnDrawGizmos() {
-		Gizmos.DrawLine(transform.position, transform.forward.normalized * spawnRangeForNewBuildingSpawner);
+	void OnTriggerExit(Collider other) {
+		// clean up too far buildings
+		Destroy(other.gameObject);
 	}
 }

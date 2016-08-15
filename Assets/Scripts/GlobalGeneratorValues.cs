@@ -12,7 +12,7 @@ public static class GlobalGeneratorValues {
 	public static List<GameObject> buildings = new List<GameObject>();
 	private static bool prefabsInitialized = false;
 
-	public static float fullSizeBuildingScale = 70f;
+	public static float fullSizeBuildingScale = 20f;
 	public static float buildingReduction = 0.61803398876895f; // 1 / golden ratio
 
 	private static List<Quaternion> spawnRots = new List<Quaternion>();

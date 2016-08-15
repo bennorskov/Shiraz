@@ -14,6 +14,8 @@ public class playerMover : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		RenderSettings.fogColor = Color.red;
+
 		GlobalGeneratorValues.initBuildingPrefabs(); // this needs to be called somewhere; there's only one player
 		GlobalGeneratorValues.initBuildingPositions( transform.position );
 		rb = GetComponent<Rigidbody>();

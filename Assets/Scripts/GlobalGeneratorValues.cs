@@ -47,6 +47,9 @@ public static class GlobalGeneratorValues {
 		buildings.Add( (GameObject) Resources.Load("texturedbldg") );
 		buildings.Add( (GameObject) Resources.Load("trianglebuilding") );
 		buildings.Add( (GameObject) Resources.Load("TriangleBldg2") );
+		buildings.Add( (GameObject) Resources.Load("RoundBuilding") );
+		buildings.Add( (GameObject) Resources.Load("tower_antenna") );
+		buildings.Add( (GameObject) Resources.Load("slopedRoof") );
 		buildings.Add( (GameObject) Resources.Load("UB_1") );
 		buildings.Add( (GameObject) Resources.Load("UB_2") );
 		buildings.Add( (GameObject) Resources.Load("UB_3") );

@@ -8,7 +8,7 @@ public class spawnABuilding : MonoBehaviour {
 	private GameObject buildingSpawner;
 	private Rigidbody rb;
 
-	private float spawnRange = 20f;
+	private float spawnRange = 500f;
 
 	private List<Vector3> spawnLocations = new List<Vector3>();
 	private float minSpawnDist = 100f;
@@ -21,7 +21,7 @@ public class spawnABuilding : MonoBehaviour {
 
 	public void spawnBuildingWhileMoving( Transform pos ) {
 		//called from the player mover script when the min distance has been achieved
-		GlobalGeneratorValues.initBuildingPositions( rb.velocity * spawnRange );	
+		GlobalGeneratorValues.initBuildingPositions( transform.position + rb.velocity.normalized * spawnRange );	
 	}
 
 	public void spawnBuilding ( Vector3 pos, Quaternion spawnRot ) {
@@ -48,11 +48,9 @@ public class spawnABuilding : MonoBehaviour {
 		return true;
 	}
 
-	void OnDrawGizmos() {
+	void dontrun_OnDrawGizmos() {
 		Gizmos.color = Color.green;
-		Vector3 v = transform.InverseTransformDirection(rb.velocity);
-		Gizmos.DrawLine(transform.position, v);
-		print(v);
+		Gizmos.DrawLine(transform.position, transform.position+rb.velocity.normalized * spawnRange);
 		Gizmos.color = Color.cyan;
 		Gizmos.DrawRay( new Ray(transform.position, transform.forward) );
 	}

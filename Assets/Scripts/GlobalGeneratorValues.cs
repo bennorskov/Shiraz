@@ -40,10 +40,10 @@ public static class GlobalGeneratorValues {
 		buildings.Add( (GameObject) Resources.Load("4B_2") );
 		buildings.Add( (GameObject) Resources.Load("4B_3") );
 		buildings.Add( (GameObject) Resources.Load("4B_4") );
-		buildings.Add( (GameObject) Resources.Load("11+Brunel+Court") );
+		buildings.Add( (GameObject) Resources.Load("11BrunelCourt") );
 		buildings.Add( (GameObject) Resources.Load("AuroraPlace") );
-		buildings.Add( (GameObject) Resources.Load("Broward+Financial+Center") );
-		buildings.Add( (GameObject) Resources.Load("Empire+State+Building.fbx") );
+		buildings.Add( (GameObject) Resources.Load("BrowardFinancialCenter") );
+		buildings.Add( (GameObject) Resources.Load("EmpireStateBuilding") );
 		buildings.Add( (GameObject) Resources.Load("texturedbldg") );
 		buildings.Add( (GameObject) Resources.Load("trianglebuilding") );
 		buildings.Add( (GameObject) Resources.Load("TriangleBldg2") );

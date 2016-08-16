@@ -12,7 +12,7 @@ public class playerMover : MonoBehaviour {
 	private Vector3 lastSpawnPosition;
 	private spawnABuilding sAB;
 
-	private float maxSpeed = 10f;
+	public float maxSpeed = 100f;
 
 	// Use this for initialization
 	void Start () {

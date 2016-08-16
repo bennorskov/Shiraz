@@ -12,6 +12,8 @@ public class playerMover : MonoBehaviour {
 	private Vector3 lastSpawnPosition;
 	private spawnABuilding sAB;
 
+	private float maxSpeed = 10f;
+
 	// Use this for initialization
 	void Start () {
 		GlobalGeneratorValues.initBuildingPrefabs(); // this needs to be called somewhere; there's only one player
@@ -23,6 +25,10 @@ public class playerMover : MonoBehaviour {
 
 	void FixedUpdate () {
 		rb.AddForce( transform.forward * acceleration);
+
+		if (rb.velocity.magnitude>maxSpeed) {
+			rb.velocity = rb.velocity.normalized * maxSpeed;
+		}
 	}
 
 	void Update() {

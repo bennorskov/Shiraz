@@ -26,6 +26,8 @@ public static class GlobalGeneratorValues {
 
 	private static spawnABuilding spawner;
 
+	private static List<AudioClip> buildingSounds = new List<AudioClip>();
+
 	public static void initBuildingPrefabs() {
 		if ( prefabsInitialized ) return; // this is called a couple places
 		RenderSettings.fogColor = Color.red; //global fog color call
@@ -56,6 +58,10 @@ public static class GlobalGeneratorValues {
 		buildings.Add( (GameObject) Resources.Load("UB_4") );
 		buildings.Add( (GameObject) Resources.Load("UB_5") );
 		buildings.Add( (GameObject) Resources.Load("UB_6") );
+
+		//Master list of Audio Clips
+		//They must be in the Assets -> Resources folder, just like the buildings above
+		buildingSounds.Add( (AudioClip) Resources.Load("Audio/440hz") );
 
 		spawnRots.Add( Quaternion.Euler( Vector3.up * 90 ) );
 		spawnRots.Add( Quaternion.Euler( Vector3.up * 90 ) ); //weighting up higher than other directions slightly
@@ -93,6 +99,10 @@ public static class GlobalGeneratorValues {
 
 	public static GameObject getRandomBuilding() {
 		return buildings[ Mathf.FloorToInt( Random.Range(0, buildings.Count) ) ];
+	}
+
+	public static AudioClip getRandomAudioClip() {
+		return buildingSounds[ Mathf.FloorToInt( Random.Range(0, buildingSounds.Count) ) ];	
 	}
 
 	public static Quaternion getSpawnRotation() {

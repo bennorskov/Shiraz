@@ -38,32 +38,41 @@ public static class GlobalGeneratorValues {
 		// This is the master list of buildings
 		// each building needs to have a prefab saved in the "Resources" folder
 		// Call each building by prefab name here:
-		buildings.Add( (GameObject) Resources.Load("4B_1") );
+		buildings.Add( (GameObject) Resources.Load("4B_1_newSize") );
 		buildings.Add( (GameObject) Resources.Load("4B_2") );
-		buildings.Add( (GameObject) Resources.Load("4B_3") );
-		buildings.Add( (GameObject) Resources.Load("4B_4") );
+		buildings.Add( (GameObject) Resources.Load("4B_3newSize") );
+		buildings.Add( (GameObject) Resources.Load("4B_4new") );
 		buildings.Add( (GameObject) Resources.Load("New_1") );
-		buildings.Add( (GameObject) Resources.Load("AuroraPlace") );
+		buildings.Add( (GameObject) Resources.Load("AuroraPlace 1") );
 		buildings.Add( (GameObject) Resources.Load("BrowardFinancialCenter") );
 		buildings.Add( (GameObject) Resources.Load("EmpireStateBuilding") );
 		buildings.Add( (GameObject) Resources.Load("texturedbldg") );
 		buildings.Add( (GameObject) Resources.Load("trianglebuilding") );
 		buildings.Add( (GameObject) Resources.Load("TriangleBldg2") );
-		buildings.Add( (GameObject) Resources.Load("RoundBuilding") );
-		buildings.Add( (GameObject) Resources.Load("RoundBuilding2") );
+		buildings.Add( (GameObject) Resources.Load("RoundBuilding 1") );
 		buildings.Add( (GameObject) Resources.Load("tower_antenna") );
 		buildings.Add( (GameObject) Resources.Load("slopedRoof") );
-		buildings.Add( (GameObject) Resources.Load("UB_1") );
-		buildings.Add( (GameObject) Resources.Load("UB_2") );
-		buildings.Add( (GameObject) Resources.Load("UB_3") );
-		buildings.Add( (GameObject) Resources.Load("UB_4") );
-		buildings.Add( (GameObject) Resources.Load("UB_5") );
-		buildings.Add( (GameObject) Resources.Load("UB_6") );
+//		buildings.Add( (GameObject) Resources.Load("UB_1") );
+//		buildings.Add( (GameObject) Resources.Load("UB_2") );
+//		buildings.Add( (GameObject) Resources.Load("UB_3") );
+//		buildings.Add( (GameObject) Resources.Load("UB_4") );
+//		buildings.Add( (GameObject) Resources.Load("UB_5") );
+//		buildings.Add( (GameObject) Resources.Load("UB_6") );
 
 		//Master list of Audio Clips
 		//They must be in the Assets -> Resources folder, just like the buildings above
-		buildingSounds.Add( (AudioClip) Resources.Load("Audio/440hz") );
-
+//		buildingSounds.Add( (AudioClip) Resources.Load("Audio/c#Ah") );
+		//		buildingSounds.Add( (AudioClip) Resources.Load("Audio/d#Ah") );
+		buildingSounds.Add( (AudioClip) Resources.Load("Audio/newAh") );
+		buildingSounds.Add( (AudioClip) Resources.Load("Audio/417 hz") );
+		buildingSounds.Add( (AudioClip) Resources.Load("Audio/174 hz") );
+		buildingSounds.Add( (AudioClip) Resources.Load("Audio/285 hz") );
+		buildingSounds.Add( (AudioClip) Resources.Load("Audio/396 hz") );
+//		buildingSounds.Add( (AudioClip) Resources.Load("Audio/bassoonC#") );
+//		buildingSounds.Add( (AudioClip) Resources.Load("Audio/bassoonBb") );
+		buildingSounds.Add( (AudioClip) Resources.Load("Audio/bassoonE") );
+//		buildingSounds.Add( (AudioClip) Resources.Load("Audio/bassoonF#") );
+		buildingSounds.Add( (AudioClip) Resources.Load("Audio/trumpet1-3_loop") );
 		spawnRots.Add( Quaternion.Euler( Vector3.up * 90 ) );
 		spawnRots.Add( Quaternion.Euler( Vector3.up * 90 ) ); //weighting up higher than other directions slightly
 		spawnRots.Add( Quaternion.Euler( Vector3.left * 90 ) );

@@ -8,7 +8,7 @@ public class spawnABuilding : MonoBehaviour {
 	private GameObject buildingSpawner;
 	private Rigidbody rb;
 
-	private float spawnRange = 700f; // 200 more than far clip plane: buildings are really big
+	private float spawnRange = 850f; // 200 more than far clip plane: buildings are really big
 
 	private List<Vector3> spawnLocations = new List<Vector3>();
 	private float minSpawnDist = 100f;

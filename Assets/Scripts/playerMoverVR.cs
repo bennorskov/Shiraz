@@ -13,8 +13,6 @@ public class playerMoverVR : MonoBehaviour {
 	private Vector3 lastSpawnPosition;
 	private spawnABuilding sAB;
 
-	public Transform t;
-
 	private GvrViewer vrViewer;
 
 	public float maxSpeed = 100f;

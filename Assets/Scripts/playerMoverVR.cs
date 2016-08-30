@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Gvr.Internal;
+using UnityStandardAssets.Cameras;
 
 public class playerMoverVR : MonoBehaviour {
 
@@ -25,10 +26,19 @@ public class playerMoverVR : MonoBehaviour {
 		sAB = GetComponent<spawnABuilding>();
 		vrViewer = GetComponent<GvrViewer>();
 		lastSpawnPosition = transform.position;
+
+		GetComponent<FreeLookCam>().enabled = !vrViewer.VRModeEnabled;
+
+		Cursor.visible = false;
 	}
 
 	void FixedUpdate () {
-		Vector3 v = vrViewer.HeadPose.Orientation * Vector3.forward;
+		Vector3 v;
+		if (vrViewer.VRModeEnabled) {
+			v = vrViewer.HeadPose.Orientation * Vector3.forward;
+		} else {
+			v = transform.forward;
+		}
 		rb.AddForce(v  * acceleration);
 
 		if (rb.velocity.magnitude>maxSpeed) {
